@@ -18,7 +18,7 @@ public class Super : MonoBehaviour, IProjectile {
 
     public void ShakeCamera()
     {
-        cs.StartShaking(2);
+        cs.StartShaking(2, 2);
     }
 
     // Use this for initialization

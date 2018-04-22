@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour {
 
     public GameObject[] points;
 
     public Player player;
+    public FinalScore score;
+
+    bool canRestartLevel = false;
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +24,24 @@ public class Level : MonoBehaviour {
 
             totalEnemiesToSpawn -= 1;
         }
-    }
-	
-	// Update is called once per frame
-	void Update () {
 
+        score.onScoreShown += OnScoreShown;
+    }
+
+    private void OnScoreShown()
+    {
+        canRestartLevel = true;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if(canRestartLevel)
+        {
+            if (Input.anyKey)
+            {
+                Debug.Log("Loading level!");
+                SceneManager.LoadScene("Main");
+            }
+        }
 	}
 }

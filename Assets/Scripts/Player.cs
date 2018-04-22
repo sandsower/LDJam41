@@ -19,9 +19,11 @@ public class Player : Character {
 
     public Animator animator;
 
-
     public delegate void OnPlayerHit(int currentHealth);
     public event OnPlayerHit onPlayerHit;
+
+    public delegate void OnPlayerDeath();
+    public event OnPlayerDeath onPlayerDeath;
 
     // Use this for initialization
     void Start () {
@@ -130,6 +132,12 @@ public class Player : Character {
             if (health == 0)
             {
                 StopAllCoroutines();
+
+                if (onPlayerDeath != null)
+                {
+                    onPlayerDeath();
+                }
+
                 StartCoroutine(StartDeathAnimation(false));
             }
         }

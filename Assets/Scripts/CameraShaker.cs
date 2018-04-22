@@ -7,11 +7,11 @@ public class CameraShaker : MonoBehaviour {
     Vector3 originalCameraPosition;
     float shakeAmt = 0;
 
-    public void StartShaking(float magnitude) {
+    public void StartShaking(float magnitude, float time) {
 
         shakeAmt = magnitude * .0125f;
         InvokeRepeating("CameraShake", 0, .01f);
-        Invoke("StopShaking", 0.3f);
+        Invoke("StopShaking", 0.3f * time);
     }
 
     void CameraShake()

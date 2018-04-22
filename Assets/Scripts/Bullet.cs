@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour, IProjectile {
     }
 
     public void ShakeCamera() {
-        cs.StartShaking(1);
+        cs.StartShaking(1, 1);
     }
 
     // Use this for initialization

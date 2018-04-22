@@ -8,7 +8,7 @@ public class Blank : MonoBehaviour, IProjectile {
 
     public int GetDamage()
     {
-        return 1;
+        return 0;
     }
 
     public bool ShouldBeDestroyed()
@@ -18,7 +18,7 @@ public class Blank : MonoBehaviour, IProjectile {
 
     public void ShakeCamera()
     {
-        cs.StartShaking(1);
+        cs.StartShaking(0, 0);
     }
 
     // Use this for initialization
