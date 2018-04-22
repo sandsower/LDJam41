@@ -13,7 +13,6 @@ public class Player : Character {
     public float movementHorizontal = 0f;
     public float pushBackSpeed = 2f;
 
-    public bool isAlive = true;
     public int health = 3;
 
     public Animator animator;
@@ -58,7 +57,7 @@ public class Player : Character {
 	
 	// Update is called once per frame
 	void Update () {
-        if(isAlive) { 
+        if(!isDying) { 
             // Get Player movement
             movementHorizontal = Input.GetAxisRaw("Horizontal");
             movementVertical = Input.GetAxisRaw("Vertical");
@@ -92,22 +91,23 @@ public class Player : Character {
 
     public void TakeDamage(Collider2D collision)
     {
-        health -= 1;
+        if (!isDying) { 
+            health -= 1;
 
-        if (onPlayerHit != null)
-        {
-            onPlayerHit(health);
-        }
+            if (onPlayerHit != null)
+            {
+                onPlayerHit(health);
+            }
 
-        StartCoroutine(StartDamageAnimation());
+            StartCoroutine(StartDamageAnimation());
 
-        StartCoroutine(MakeInvulnerable(damageTime));
+            StartCoroutine(MakeInvulnerable(damageTime));
 
-        if (health == 0)
-        {
-            Debug.Log("Am dead");
-            isAlive = false;
-            StartCoroutine(StartDeathAnimation(false));
+            if (health == 0)
+            {
+                StopAllCoroutines();
+                StartCoroutine(StartDeathAnimation(false));
+            }
         }
     }
 }

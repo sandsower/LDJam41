@@ -46,6 +46,10 @@ public class Character : MonoBehaviour {
         {
             InvokeRepeating("Blink", 0, 0.07f);
         }
+        else
+        {
+            StopBlinking();
+        }
 
         yield return new WaitForSeconds(deathTime);
 

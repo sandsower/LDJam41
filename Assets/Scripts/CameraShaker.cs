@@ -8,6 +8,7 @@ public class CameraShaker : MonoBehaviour {
     float shakeAmt = 0;
 
     public void StartShaking(float magnitude) {
+
         shakeAmt = magnitude * .0125f;
         InvokeRepeating("CameraShake", 0, .01f);
         Invoke("StopShaking", 0.3f);
@@ -29,6 +30,8 @@ public class CameraShaker : MonoBehaviour {
     {
         CancelInvoke("CameraShake");
         Camera.main.transform.position = originalCameraPosition;
+
+        Debug.Log(Camera.main.transform.position);
     }
 
     void Start() {

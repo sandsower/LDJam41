@@ -52,7 +52,7 @@ public class BadGuyNormal : Character, IEnemy {
 	}
 
     void FixedUpdate() {
-        if (!isDying && player.isAlive) {
+        if (!isDying && !player.isDying) {
             transform.position = Vector2.MoveTowards(transform.position, player.transform.localPosition, speed * Time.deltaTime);
         }
     }
