@@ -37,4 +37,14 @@ public class Blank : MonoBehaviour, IProjectile {
     {
         return gameObject;
     }
+
+    public float GetMaxTimelimit()
+    {
+        return .5f;
+    }
+
+    public float GetProjectileSpeed()
+    {
+        return 1f;
+    }
 }

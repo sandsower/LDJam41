@@ -8,17 +8,17 @@ public class Super : MonoBehaviour, IProjectile {
 
     public int GetDamage()
     {
-        return 1;
+        return 2;
     }
 
     public bool ShouldBeDestroyed()
     {
-        return true;
+        return false;
     }
 
     public void ShakeCamera()
     {
-        cs.StartShaking(1);
+        cs.StartShaking(2);
     }
 
     // Use this for initialization
@@ -36,5 +36,15 @@ public class Super : MonoBehaviour, IProjectile {
     public GameObject GetObjectToInstantiate()
     {
         return gameObject;
+    }
+
+    public float GetMaxTimelimit()
+    {
+        return 2f;
+    }
+
+    public float GetProjectileSpeed()
+    {
+        return 6f;
     }
 }

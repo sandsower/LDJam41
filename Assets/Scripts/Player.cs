@@ -57,11 +57,11 @@ public class Player : Character {
         direction.Normalize();
 
         GameObject firedShot = Instantiate(projectile.GetObjectToInstantiate(), bulletSpawnPoint);
-        firedShot.GetComponent<Rigidbody2D>().velocity = direction * 6;
+        firedShot.GetComponent<Rigidbody2D>().velocity = direction * projectile.GetProjectileSpeed();
 
         firedShot.GetComponent<IProjectile>().ShakeCamera();
 
-        Destroy(firedShot, 2f);
+        Destroy(firedShot, projectile.GetMaxTimelimit());
     }
 	
 	// Update is called once per frame

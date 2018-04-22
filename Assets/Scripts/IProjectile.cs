@@ -8,5 +8,7 @@ public interface IProjectile {
     int GetDamage();
     //void GetModifiers();
     bool ShouldBeDestroyed();
+    float GetMaxTimelimit();
 
+    float GetProjectileSpeed();
 }

@@ -34,4 +34,14 @@ public class Bullet : MonoBehaviour, IProjectile {
     {
         return gameObject;
     }
+
+    public float GetMaxTimelimit()
+    {
+        return 2f;
+    }
+
+    public float GetProjectileSpeed()
+    {
+        return 6f;
+    }
 }
