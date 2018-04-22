@@ -8,6 +8,8 @@ public class Player : Character {
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
 
+    public CardHolder cardHolder;
+
     public float movementSpeed = 200f;
     public float movementVertical = 0f;
     public float movementHorizontal = 0f;
@@ -40,14 +42,14 @@ public class Player : Character {
         return movementHorizontal != 0f || movementVertical != 0f;
     }
 
-    void FireBullet()
+    void FireProjectile(IProjectile projectile)
     {
         Vector2 firePosition = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 
         Vector2 direction = firePosition - (Vector2) transform.position;
         direction.Normalize();
 
-        GameObject firedShot = (GameObject) Instantiate(bulletPrefab, bulletSpawnPoint);
+        GameObject firedShot = Instantiate(projectile.GetObjectToInstantiate(), bulletSpawnPoint);
         firedShot.GetComponent<Rigidbody2D>().velocity = direction * 6;
 
         firedShot.GetComponent<IProjectile>().ShakeCamera();
@@ -64,7 +66,9 @@ public class Player : Character {
 
             if(Input.GetButtonDown("Fire1"))
             {
-                FireBullet();
+                Card card = cardHolder.deck.GetNextCard();
+                card.GetProjectileType();
+                FireProjectile(card.GetProjectileType());
             }
 
             animator.SetBool("IsMoving", IsPlayerMoving());

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CardHolder : MonoBehaviour {
 
+    public Deck deck;
+
     RectTransform rectTransform;
     public Image[] availableCards;
 
@@ -12,28 +14,32 @@ public class CardHolder : MonoBehaviour {
 	void Start () {
         rectTransform = GetComponent<RectTransform>();
 
-        int[] cardsToDraw = new int[5];
-        cardsToDraw[0] = 0;
-        cardsToDraw[1] = 0;
-        cardsToDraw[2] = 1;
-        cardsToDraw[3] = 2;
-        cardsToDraw[4] = 0;
-
-        DrawCards(cardsToDraw);
+        deck.onHandRefilled += onHandRefilled;
+        deck.onCardDrawn += onCardDrawn;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void onCardDrawn(Card cardDrawn)
+    {
+        DrawCards(deck.hand.ToArray());
+    }
+
+    private void onHandRefilled()
+    {
+        DrawCards(deck.hand.ToArray());
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
-    void DrawCards(int[] cardsToDraw)
+    void DrawCards(Card[] cardsToDraw)
     {
         float posX = rectTransform.rect.width / cardsToDraw.Length;
         //float posY = rectTransform.rect.height / 2;
         for (int i = 0; i < cardsToDraw.Length; i++)
         {
-            Image card = Instantiate(availableCards[cardsToDraw[i]], transform);
+            Image card = Instantiate(availableCards[(int) cardsToDraw[i].type], transform);
             card.rectTransform.localPosition = new Vector3(posX * i - (rectTransform.rect.width / 2) + (card.rectTransform.rect.width / 2) , 0, 0);
 
             Debug.Log(card.rectTransform.position);

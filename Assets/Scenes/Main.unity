@@ -433,6 +433,7 @@ GameObject:
   - component: {fileID: 678353392}
   - component: {fileID: 678353391}
   - component: {fileID: 678353394}
+  - component: {fileID: 678353395}
   m_Layer: 5
   m_Name: CardHolder
   m_TagString: Untagged
@@ -526,10 +527,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd2d15a4efce9d43915e23f208b2469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deck: {fileID: 678353395}
   availableCards:
   - {fileID: 114744733457783090, guid: 7d93a1ee8d5940c4f8196319e29d2116, type: 2}
   - {fileID: 114936879009516952, guid: c2212168b06a88942b1a436e04754d8c, type: 2}
   - {fileID: 114953078354012296, guid: 911319bf0f9f2ab4db81a537c6e1a920, type: 2}
+--- !u!114 &678353395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 678353389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb222932dc3fee4497c8023fecd292a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalShots: 17
+  superShots: 1
+  blanks: 2
+  handSize: 5
 --- !u!1 &728284908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1135,11 @@ Prefab:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114523145441379182, guid: 12e10f867ebb6af43b35a8b8ec789bbb,
+        type: 2}
+      propertyPath: cardHolder
+      value: 
+      objectReference: {fileID: 678353394}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 12e10f867ebb6af43b35a8b8ec789bbb, type: 2}
   m_IsPrefabParent: 0

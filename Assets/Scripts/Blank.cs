@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IProjectile {
+public class Blank : MonoBehaviour, IProjectile {
 
     public CameraShaker cs;
 
@@ -16,19 +16,22 @@ public class Bullet : MonoBehaviour, IProjectile {
         return true;
     }
 
-    public void ShakeCamera() {
+    public void ShakeCamera()
+    {
         cs.StartShaking(1);
     }
 
     // Use this for initialization
-    void Start () {
-        cs = (CameraShaker) GetComponent<CameraShaker>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+        cs = (CameraShaker)GetComponent<CameraShaker>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public GameObject GetObjectToInstantiate()
     {
