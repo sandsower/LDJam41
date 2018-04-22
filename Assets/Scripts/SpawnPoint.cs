@@ -29,9 +29,7 @@ public class SpawnPoint : MonoBehaviour {
         spawned.GetComponent<IEnemy>().setPlayer(player);
 
         Vector2 initialPoint = transform.localPosition;
-        Vector2 position = new Vector2(Random.Range(initialPoint.x, transform.lossyScale.x), Random.Range(initialPoint.y, transform.lossyScale.y));
-
-        spawned.transform.localPosition = position;   
+        spawned.transform.localPosition = initialPoint;   
     }
 
 	// Use this for initialization

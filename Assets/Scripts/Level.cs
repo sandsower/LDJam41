@@ -2,24 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(List<GameObject>))]
 public class Level : MonoBehaviour {
 
-    List<GameObject> spawnPoints;
+    public GameObject[] points;
 
     public Player player;
 
 	// Use this for initialization
 	void Start () {
-        foreach(Transform child in transform)
-        {
-            if (child.CompareTag("SpawnRegion"))
-            {
-                SpawnPoint spawnPoint = child.GetComponent<SpawnPoint>();
-                spawnPoint.SpawnEnemies(3, player);
-            }
+        
+        int totalEnemiesToSpawn = 12;
+
+        Debug.Log(points);
+
+        while (totalEnemiesToSpawn > 0) {
+
+            SpawnPoint spawnPoint = points[Random.Range(0, points.Length)].GetComponent<SpawnPoint>();
+            spawnPoint.SpawnEnemies(1, player);
+
+            totalEnemiesToSpawn -= 1;
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
