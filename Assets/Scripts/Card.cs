@@ -12,12 +12,7 @@ public class Card : MonoBehaviour {
 
     public CardType type;
 
-    public Card(CardType cardType)
-    {
-        type = cardType;
-    }
-
-    public IProjectile GetProjectileType ()
+    public IProjectile GetProjectile ()
     {
         switch (type)
         {

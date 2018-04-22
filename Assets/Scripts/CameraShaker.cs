@@ -30,8 +30,6 @@ public class CameraShaker : MonoBehaviour {
     {
         CancelInvoke("CameraShake");
         Camera.main.transform.position = originalCameraPosition;
-
-        Debug.Log(Camera.main.transform.position);
     }
 
     void Start() {

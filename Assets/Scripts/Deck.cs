@@ -11,33 +11,41 @@ public class Deck : MonoBehaviour {
 
     public int handSize = 5;
     public Queue<Card> hand;
+    public Card cardTemplate;
 
     Queue<Card> currentDeck;
     Queue<Card> discard;
     
-    public delegate void OnCardDrawn(Card cardDrawn);
-    public event OnCardDrawn onCardDrawn;
+    public delegate void OnCardPlayed(Card cardPlayed);
+    public event OnCardPlayed onCardPlayed;
 
     public delegate void OnHandRefilled();
     public event OnHandRefilled onHandRefilled;
+
+    void EnqueueCardOfType(CardType cardType)
+    {
+        Card card = Instantiate(cardTemplate, transform);
+        card.type = cardType;
+        currentDeck.Enqueue(card);
+    }
 
     void GenerateStarterDeck() {
         currentDeck = new Queue<Card>();
         
         for (int i = 0; i < normalShots; i++)
         {
-            currentDeck.Enqueue(new Card(CardType.Normal));
+            EnqueueCardOfType(CardType.Normal);
         }
 
         for (int i = 0; i < superShots; i++)
         {
-            currentDeck.Enqueue(new Card(CardType.Super));
+            EnqueueCardOfType(CardType.Super);
         }
 
 
         for (int i = 0; i < blanks; i++)
         {
-            currentDeck.Enqueue(new Card(CardType.Blank));
+            EnqueueCardOfType(CardType.Blank);
         }
 
         currentDeck = RandomizeCards(currentDeck);
@@ -62,12 +70,14 @@ public class Deck : MonoBehaviour {
         // Pop from the queue, send delegate notice for possible animations
         Card card = hand.Dequeue();
 
-        if(onCardDrawn != null)
+        if(onCardPlayed != null)
         {
-            onCardDrawn(card);
+            onCardPlayed(card);
         }
 
         discard.Enqueue(card);
+
+        Debug.Log(card);
 
         return card;
     }
@@ -92,7 +102,8 @@ public class Deck : MonoBehaviour {
 
         for (int i = 0; i < toDraw; i++)
         {
-            hand.Enqueue(currentDeck.Dequeue());
+            Card card = currentDeck.Dequeue();
+            hand.Enqueue(card);
         }
 
         if(onHandRefilled != null)

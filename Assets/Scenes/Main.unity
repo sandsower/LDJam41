@@ -547,6 +547,7 @@ MonoBehaviour:
   superShots: 1
   blanks: 2
   handSize: 5
+  cardTemplate: {fileID: 1876574945}
 --- !u!1 &728284908
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,3 +1149,47 @@ GameObject:
   m_PrefabParentObject: {fileID: 1445757211281894, guid: 5cc8d347cda67d64880ef35254d0d894,
     type: 2}
   m_PrefabInternal: {fileID: 1440827237}
+--- !u!1 &1876574944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1876574946}
+  - component: {fileID: 1876574945}
+  m_Layer: 0
+  m_Name: Card
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1876574945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876574944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e525ac05a7f49b42ba082539fb22585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 114153543427989050, guid: fd8dca965e8d7e049b9322501d36a056, type: 2}
+  blank: {fileID: 114332896048754248, guid: ea2d2e9eb29f2e945877fe7b8623e933, type: 2}
+  super: {fileID: 114301212591266564, guid: c212a9ebcdca41343ace0ad6eb1bbe02, type: 2}
+  type: 1
+--- !u!4 &1876574946
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876574944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

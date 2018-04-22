@@ -36,6 +36,14 @@ public class Player : Character {
         {
             onPlayerHit(health);
         }
+
+        cardHolder.deck.onCardPlayed += OnCardPlayed;
+
+    }
+
+    void OnCardPlayed(Card cardPlayed)
+    {
+        FireProjectile(cardPlayed.GetProjectile());
     }
 
     bool IsPlayerMoving() {
@@ -44,6 +52,7 @@ public class Player : Character {
 
     void FireProjectile(IProjectile projectile)
     {
+        Debug.Log(projectile);
         Vector2 firePosition = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 
         Vector2 direction = firePosition - (Vector2) transform.position;
@@ -66,12 +75,22 @@ public class Player : Character {
 
             if(Input.GetButtonDown("Fire1"))
             {
-                Card card = cardHolder.deck.GetNextCard();
-                card.GetProjectileType();
-                FireProjectile(card.GetProjectileType());
+                if (cardHolder.deck.IsDeckEmpty())
+                {
+                    cardHolder.deck.RefillDeck();
+                }
+                else
+                {
+                    if (cardHolder.deck.IsHandEmpty())
+                    {
+                        cardHolder.deck.RefillHand();
+                    }
+                    else
+                    {
+                        cardHolder.deck.GetNextCard();
+                    }
+                }
             }
-
-            animator.SetBool("IsMoving", IsPlayerMoving());
         }
     }
 
@@ -82,6 +101,8 @@ public class Player : Character {
         velocity.y = movementVertical * movementSpeed * Time.deltaTime;
 
         playerRigidBody.velocity = velocity;
+
+        animator.SetBool("IsMoving", IsPlayerMoving());
     }
 
     IEnumerator MakeInvulnerable(float time)
