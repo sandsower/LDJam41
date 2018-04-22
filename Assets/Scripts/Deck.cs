@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,11 +26,14 @@ public class Deck : MonoBehaviour {
     public delegate void OnDeckConstructed();
     public event OnDeckConstructed onDeckConstructed;
 
-    void EnqueueCardOfType(CardType cardType)
+    public delegate void OnCardPoolChanged();
+    public event OnCardPoolChanged onCardPoolChanged;
+
+    void EnqueueCardOfType(CardType cardType, Queue<Card> destination)
     {
         Card card = Instantiate(cardTemplate, transform);
         card.type = cardType;
-        currentDeck.Enqueue(card);
+        destination.Enqueue(card);
     }
 
     public int GetCurrentDeckSize()
@@ -47,18 +51,18 @@ public class Deck : MonoBehaviour {
         
         for (int i = 0; i < normalShots; i++)
         {
-            EnqueueCardOfType(CardType.Normal);
+            EnqueueCardOfType(CardType.Normal, currentDeck);
         }
 
         for (int i = 0; i < superShots; i++)
         {
-            EnqueueCardOfType(CardType.Super);
+            EnqueueCardOfType(CardType.Super, currentDeck);
         }
 
 
         for (int i = 0; i < blanks; i++)
         {
-            EnqueueCardOfType(CardType.Blank);
+            EnqueueCardOfType(CardType.Blank, currentDeck);
         }
 
         currentDeck = RandomizeCards(currentDeck);
@@ -134,6 +138,16 @@ public class Deck : MonoBehaviour {
         if (onDeckConstructed != null)
         {
             onDeckConstructed();
+        }
+    }
+
+    public void AddToDiscard(CardType cardType)
+    {
+        EnqueueCardOfType(cardType, discard);
+
+        if (onCardPoolChanged != null)
+        {
+            onCardPoolChanged();
         }
     }
 

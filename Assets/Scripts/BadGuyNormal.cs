@@ -7,7 +7,10 @@ public class BadGuyNormal : Character, IEnemy {
 
     public int health;
     public float speed = .4f;
+    public int enemyDifficulty = 1;
+
     public Player player;
+    public LootDropper lootDropper;
 
     // Use this for initialization
     void Start () {
@@ -21,6 +24,7 @@ public class BadGuyNormal : Character, IEnemy {
 
         if(health <= 0) {
             StopBlinking();
+            lootDropper.Drop(enemyDifficulty);
             StartCoroutine(StartDeathAnimation(true));
         } else {
             StopBlinking();

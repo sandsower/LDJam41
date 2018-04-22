@@ -11,6 +11,7 @@ public class CardCount : MonoBehaviour {
 	void Start () {
         cardHolder.deck.onCardPlayed += OnCardPlayed;
         cardHolder.deck.onDeckConstructed += OnDeckConstructed;
+        cardHolder.deck.onCardPoolChanged += OnCardPoolChanged;
     }
 
     private void OnDeckConstructed()
@@ -19,6 +20,11 @@ public class CardCount : MonoBehaviour {
     }
 
     private void OnCardPlayed(Card cardPlayed)
+    {
+        textEngine.DrawText(GenerateTextToDisplay().ToArray());
+    }
+
+    private void OnCardPoolChanged()
     {
         textEngine.DrawText(GenerateTextToDisplay().ToArray());
     }
