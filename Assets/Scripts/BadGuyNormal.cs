@@ -8,6 +8,7 @@ public class BadGuyNormal : Character, IEnemy {
     public int health;
     public float speed = .4f;
     public int enemyDifficulty = 1;
+    public int scoreValue = 5;
 
     public Player player;
     public LootDropper lootDropper;
@@ -25,6 +26,11 @@ public class BadGuyNormal : Character, IEnemy {
         if(health <= 0) {
             StopBlinking();
             lootDropper.Drop(enemyDifficulty, transform.localPosition);
+
+            Level level = GameObject.Find("Level").GetComponent<Level>();
+
+            level.EnemyKilled(scoreValue);
+
             StartCoroutine(StartDeathAnimation(true));
         } else {
             StopBlinking();

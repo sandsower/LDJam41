@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour, IProjectile {
 
-    public CameraShaker cs;
-
     public int GetDamage()
     {
         return 1;
@@ -16,13 +14,12 @@ public class Bullet : MonoBehaviour, IProjectile {
         return true;
     }
 
-    public void ShakeCamera() {
+    public void ShakeCamera(CameraShaker cs) {
         cs.StartShaking(1, 1);
     }
 
     // Use this for initialization
     void Start () {
-        cs = (CameraShaker) GetComponent<CameraShaker>();
 	}
 	
 	// Update is called once per frame

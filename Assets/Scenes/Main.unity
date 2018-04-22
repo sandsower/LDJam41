@@ -117,6 +117,46 @@ GameObject:
   m_PrefabParentObject: {fileID: 1445757211281894, guid: 5cc8d347cda67d64880ef35254d0d894,
     type: 2}
   m_PrefabInternal: {fileID: 842604449}
+--- !u!1 &59637586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 59637587}
+  - component: {fileID: 59637588}
+  m_Layer: 0
+  m_Name: WaveGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &59637587
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59637586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0227424, y: 0.09063581, z: -0.012952599}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &59637588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59637586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95bd0f28407dd74da517250441cd9ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &61757061
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textEngine: {fileID: 268590954}
+  level: {fileID: 731118006}
 --- !u!114 &268590954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -500,7 +541,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_LocalScale.y
@@ -789,6 +830,9 @@ MonoBehaviour:
   - {fileID: 114385994}
   player: {fileID: 1100333398}
   score: {fileID: 1652296346}
+  generator: {fileID: 59637588}
+  currentScore: 0
+  enemiesToKill: 0
 --- !u!1 &802823444 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1445757211281894, guid: 5cc8d347cda67d64880ef35254d0d894,
@@ -831,7 +875,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1445757211281894, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_Name
@@ -1051,7 +1095,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1445757211281894, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_Name
@@ -1220,7 +1264,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_LocalScale.y

@@ -5,13 +5,16 @@ using UnityEngine;
 public class CurrentWaveCounter : MonoBehaviour {
     public TextEngine textEngine;
 
+    public Level level;
+
     // Use this for initialization
     void Start () {
+        level.onWaveAdvance += OnWaveAdvance;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        UpdateWaveCount(1);
+
+    private void OnWaveAdvance(int wave)
+    {
+        UpdateWaveCount(wave);
     }
 
     void UpdateWaveCount(int wave) {

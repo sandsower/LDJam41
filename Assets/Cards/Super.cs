@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Super : MonoBehaviour, IProjectile {
 
-    public CameraShaker cs;
-
+    
     public int GetDamage()
     {
         return 2;
@@ -16,7 +15,7 @@ public class Super : MonoBehaviour, IProjectile {
         return false;
     }
 
-    public void ShakeCamera()
+    public void ShakeCamera(CameraShaker cs)
     {
         cs.StartShaking(2, 2);
     }
@@ -24,7 +23,6 @@ public class Super : MonoBehaviour, IProjectile {
     // Use this for initialization
     void Start()
     {
-        cs = (CameraShaker)GetComponent<CameraShaker>();
     }
 
     // Update is called once per frame

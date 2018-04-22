@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,21 +11,22 @@ public class Level : MonoBehaviour {
     public Player player;
     public FinalScore score;
 
+    public WaveGenerator generator;
+
+    public delegate void OnWaveAdvance(int wave);
+    public event OnWaveAdvance onWaveAdvance;
+
+    public int currentScore = 0;
+    public int enemiesToKill = 0;
+
+    int currentWave = 0;
+
     bool canRestartLevel = false;
 
 	// Use this for initialization
 	void Start () {
+        StartCoroutine(AdvanceWave());
         
-        int totalEnemiesToSpawn = 12;
-
-        while (totalEnemiesToSpawn > 0) {
-
-            SpawnPoint spawnPoint = points[Random.Range(0, points.Length)].GetComponent<SpawnPoint>();
-            spawnPoint.SpawnEnemies(1, player);
-
-            totalEnemiesToSpawn -= 1;
-        }
-
         score.onScoreShown += OnScoreShown;
     }
 
@@ -44,4 +46,29 @@ public class Level : MonoBehaviour {
             }
         }
 	}
+
+    IEnumerator AdvanceWave()
+    {
+        currentWave += 1;
+
+        if (onWaveAdvance != null)
+        {
+            onWaveAdvance(currentWave);
+        }
+
+        yield return new WaitForSeconds(3);
+
+        enemiesToKill = generator.Generate(currentWave, player, points);
+    }
+
+    public void EnemyKilled(int scoreValue)
+    {
+        currentScore += scoreValue;
+        enemiesToKill -= 1;
+
+        if(enemiesToKill == 0)
+        {
+            StartCoroutine(AdvanceWave());
+        }
+    }
 }

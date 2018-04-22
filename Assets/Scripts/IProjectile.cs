@@ -4,7 +4,7 @@ public interface IProjectile {
 
     UnityEngine.GameObject GetObjectToInstantiate();
 
-    void ShakeCamera();
+    void ShakeCamera(CameraShaker cameraShaker);
     int GetDamage();
     //void GetModifiers();
     bool ShouldBeDestroyed();

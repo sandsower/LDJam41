@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Blank : MonoBehaviour, IProjectile {
-
-    public CameraShaker cs;
-
+    
     public int GetDamage()
     {
         return 0;
@@ -16,7 +14,7 @@ public class Blank : MonoBehaviour, IProjectile {
         return true;
     }
 
-    public void ShakeCamera()
+    public void ShakeCamera(CameraShaker cs)
     {
         cs.StartShaking(0, 0);
     }
@@ -24,7 +22,6 @@ public class Blank : MonoBehaviour, IProjectile {
     // Use this for initialization
     void Start()
     {
-        cs = (CameraShaker)GetComponent<CameraShaker>();
     }
 
     // Update is called once per frame

@@ -61,7 +61,9 @@ public class Player : Character {
         GameObject firedShot = Instantiate(projectile.GetObjectToInstantiate(), bulletSpawnPoint);
         firedShot.GetComponent<Rigidbody2D>().velocity = direction * projectile.GetProjectileSpeed();
 
-        firedShot.GetComponent<IProjectile>().ShakeCamera();
+        CameraShaker cameraShaker = GetComponent<CameraShaker>();
+
+        firedShot.GetComponent<IProjectile>().ShakeCamera(cameraShaker);
 
         Destroy(firedShot, projectile.GetMaxTimelimit());
     }
