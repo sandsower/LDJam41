@@ -532,6 +532,7 @@ MonoBehaviour:
   - {fileID: 114744733457783090, guid: 7d93a1ee8d5940c4f8196319e29d2116, type: 2}
   - {fileID: 114936879009516952, guid: c2212168b06a88942b1a436e04754d8c, type: 2}
   - {fileID: 114953078354012296, guid: 911319bf0f9f2ab4db81a537c6e1a920, type: 2}
+  - {fileID: 114936879009516952, guid: f7bdbcd35a1600444b12bdc5d728d5ac, type: 2}
 --- !u!114 &678353395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,7 +1368,8 @@ MonoBehaviour:
   bullet: {fileID: 114153543427989050, guid: fd8dca965e8d7e049b9322501d36a056, type: 2}
   blank: {fileID: 114332896048754248, guid: ea2d2e9eb29f2e945877fe7b8623e933, type: 2}
   super: {fileID: 114301212591266564, guid: c212a9ebcdca41343ace0ad6eb1bbe02, type: 2}
-  type: 1
+  score: {fileID: 114349720356940326, guid: 2af47f945add2004cad0c8ad66bea845, type: 2}
+  type: 0
 --- !u!4 &1876574946
 Transform:
   m_ObjectHideFlags: 0
