@@ -13,8 +13,6 @@ public class Level : MonoBehaviour {
         
         int totalEnemiesToSpawn = 12;
 
-        Debug.Log(points);
-
         while (totalEnemiesToSpawn > 0) {
 
             SpawnPoint spawnPoint = points[Random.Range(0, points.Length)].GetComponent<SpawnPoint>();
