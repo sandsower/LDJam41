@@ -33,4 +33,17 @@ public class Card : MonoBehaviour {
                 return blank;
         }
     }
+
+    public int GetScorePoints()
+    {
+        switch (type)
+        {
+            case CardType.Score:
+                return 100;
+
+            default:
+                return 0;
+        }
+
+    }
 }

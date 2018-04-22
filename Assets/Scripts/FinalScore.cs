@@ -10,6 +10,8 @@ public class FinalScore : MonoBehaviour {
     public delegate void OnScoreShown();
     public event OnScoreShown onScoreShown;
 
+    public int scoreToDraw = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -45,8 +47,7 @@ public class FinalScore : MonoBehaviour {
 
         text.Enqueue(AvailableTextType.Space);
 
-
-        AvailableTextType[] score = textEngine.ConvertNumberToText(2018, 4).ToArray();
+        AvailableTextType[] score = textEngine.ConvertNumberToText(scoreToDraw, 4).ToArray();
 
         for (int i = 0; i < score.Length; i++)
         {

@@ -33,9 +33,7 @@ public class TextEngine : MonoBehaviour {
             for (int i = 0; i < textToDraw.Length; i++)
             {
                 AvailableTextType character = textToDraw[i];
-
-                Debug.Log(character);
-
+                
                 Image characterImage = Instantiate(characterTemplate, transform);
 
                 characterImage.sprite = textSprites[(int)character];
@@ -52,6 +50,8 @@ public class TextEngine : MonoBehaviour {
 
     public Queue<AvailableTextType> ConvertNumberToText (int number, int digits)
     {
+
+        Debug.Log("Converting number");
         Queue<AvailableTextType> text = new Queue<AvailableTextType>();
         
         if(digits >= 4) {
@@ -62,7 +62,7 @@ public class TextEngine : MonoBehaviour {
 
         if (digits >= 3)
         {
-            int hundreds = number / 1000;
+            int hundreds = number / 100;
             text.Enqueue((AvailableTextType)hundreds);
             number -= hundreds * 100;
         }

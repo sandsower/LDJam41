@@ -22,10 +22,9 @@ GameObject:
   - component: {fileID: 212451761802333114}
   - component: {fileID: 50318712223675776}
   - component: {fileID: 61900079927669908}
-  - component: {fileID: 114158935167939342}
-  - component: {fileID: 114349720356940326}
+  - component: {fileID: 114332896048754248}
   m_Layer: 0
-  m_Name: Score
+  m_Name: Blank
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.05, y: 0.05}
   m_EdgeRadius: 0
---- !u!114 &114158935167939342
+--- !u!114 &114332896048754248
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -97,21 +96,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1730079785701876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c5349baea6453842a65e081a5f36351, type: 3}
+  m_Script: {fileID: 11500000, guid: 165445d8c1382f7428ed05ae9bb1e567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114349720356940326
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1730079785701876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce03699a9bb723b4d89864173fc743da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cs: {fileID: 114158935167939342}
 --- !u!212 &212451761802333114
 SpriteRenderer:
   m_ObjectHideFlags: 1

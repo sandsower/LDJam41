@@ -28,6 +28,15 @@ public class Level : MonoBehaviour {
         StartCoroutine(AdvanceWave());
         
         score.onScoreShown += OnScoreShown;
+        player.onPlayerDeath += CalculateScore;
+    }
+
+    private void CalculateScore()
+    {
+        Deck deck = player.cardHolder.deck;
+        currentScore += deck.GetScore();
+
+        score.scoreToDraw = currentScore;
     }
 
     private void OnScoreShown()

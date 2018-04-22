@@ -36,6 +36,31 @@ public class Deck : MonoBehaviour {
         destination.Enqueue(card);
     }
 
+    public int GetScore()
+    {
+        int score = 0;
+
+        while (currentDeck.Count > 0)
+        {
+            Card card = currentDeck.Dequeue();
+            score += card.GetScorePoints();
+        }
+
+        while (discard.Count > 0)
+        {
+            Card card = discard.Dequeue();
+            score += card.GetScorePoints();
+        }
+
+        while (hand.Count > 0)
+        {
+            Card card = hand.Dequeue();
+            score += card.GetScorePoints();
+        }
+
+        return score;
+    }
+
     public int GetCurrentDeckSize()
     {
         return currentDeck.Count;
