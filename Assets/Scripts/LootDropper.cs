@@ -25,12 +25,10 @@ public class LootDropper : MonoBehaviour {
         return false;
     }
 
-    public void Drop(int enemyDifficulty)
+    public void Drop(int enemyDifficulty, Vector2 currentPos)
     {
         if(ShouldDropLoot(enemyDifficulty))
-        {
-            Vector2 currentPos = transform.position;
-            
+        {   
             Loot loot = Instantiate(chosenLoot, GameObject.Find("Level").transform);
             loot.transform.position = currentPos;
         }

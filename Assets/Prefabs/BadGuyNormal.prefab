@@ -141,7 +141,10 @@ MonoBehaviour:
   damageTime: 1
   health: 2
   speed: 0.5
+  enemyDifficulty: 1
   player: {fileID: 114523145441379182, guid: 12e10f867ebb6af43b35a8b8ec789bbb, type: 2}
+  lootDropper: {fileID: 114007917001024060, guid: d5eec955fcc3a414f9e8440415cfa5da,
+    type: 2}
 --- !u!212 &212816050079679132
 SpriteRenderer:
   m_ObjectHideFlags: 1

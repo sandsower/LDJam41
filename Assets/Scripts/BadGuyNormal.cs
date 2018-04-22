@@ -24,7 +24,7 @@ public class BadGuyNormal : Character, IEnemy {
 
         if(health <= 0) {
             StopBlinking();
-            lootDropper.Drop(enemyDifficulty);
+            lootDropper.Drop(enemyDifficulty, transform.localPosition);
             StartCoroutine(StartDeathAnimation(true));
         } else {
             StopBlinking();

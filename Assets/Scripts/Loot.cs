@@ -7,11 +7,9 @@ public class Loot : MonoBehaviour {
     public int rarity;
 
     public CardType cardType;
-    public CardHolder holder;
-    
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -23,7 +21,7 @@ public class Loot : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player")) {
-            Debug.Log("Picking up!");
+            CardHolder holder = GameObject.Find("CardHolder").GetComponent<CardHolder>();
             holder.deck.AddToDiscard(cardType);
 
             Destroy(gameObject);
