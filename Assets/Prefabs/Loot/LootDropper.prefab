@@ -55,5 +55,5 @@ MonoBehaviour:
   - {fileID: 114678480500930366, guid: d109bcf81211da748a3910f80d08a862, type: 2}
   - {fileID: 114875984784131504, guid: 8fae7234e1845f344910b2d58ef9d63d, type: 2}
   - {fileID: 114447426232796334, guid: edc922fa2ba99b247bb006eb3a9faf6b, type: 2}
-  chosenLoot: {fileID: 114678480500930366, guid: d109bcf81211da748a3910f80d08a862,
+  chosenLoot: {fileID: 114447426232796334, guid: edc922fa2ba99b247bb006eb3a9faf6b,
     type: 2}

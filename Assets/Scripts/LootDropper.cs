@@ -15,7 +15,9 @@ public class LootDropper : MonoBehaviour {
             Loot loot = lootArray[i];
             double roll = random.NextDouble();
 
-            if(roll < enemyDifficulty / loot.rarity )
+            Debug.Log(roll);
+
+            if(roll < ((double)enemyDifficulty / loot.rarity ))
             {
                 chosenLoot = loot;
                 return true;
