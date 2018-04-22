@@ -40,11 +40,11 @@ public class Super : MonoBehaviour, IProjectile {
 
     public float GetMaxTimelimit()
     {
-        return 2f;
+        return 1f;
     }
 
     public float GetProjectileSpeed()
     {
-        return 6f;
+        return 2f;
     }
 }

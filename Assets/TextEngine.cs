@@ -27,7 +27,6 @@ public class TextEngine : MonoBehaviour {
         {
             AvailableTextType character = textToDraw[i];
 
-            Debug.Log(character);
             Image characterImage = Instantiate(characterTemplate, transform);
 
             characterImage.sprite = textSprites[(int)character];

@@ -23,7 +23,7 @@ public class Card : MonoBehaviour {
                 return blank;
 
             case CardType.Super:
-                return blank;
+                return super;
 
             default:
                 return blank;
