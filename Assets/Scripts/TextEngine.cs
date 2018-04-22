@@ -11,31 +11,41 @@ public class TextEngine : MonoBehaviour {
 
     RectTransform rectTransform;
 
+    // Use this for initialization
+    void Start()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
+
     public Image characterTemplate;
     public Sprite[] textSprites;
 
     public void DrawText(AvailableTextType[] textToDraw)
     {
-        foreach (Transform child in transform)
-        {
-            Destroy(child.gameObject);
-        }
-
-        float posX = rectTransform.rect.width / textToDraw.Length;
-        
-        for (int i = 0; i < textToDraw.Length; i++)
-        {
-            AvailableTextType character = textToDraw[i];
-
-            Image characterImage = Instantiate(characterTemplate, transform);
-
-            characterImage.sprite = textSprites[(int)character];
-            characterImage.rectTransform.localPosition = new Vector3(posX * i - (rectTransform.rect.width / 2) + (characterImage.rectTransform.rect.width / 2), 0, 0);
-
-
-            if (character == AvailableTextType.Space)
+        if (textToDraw.Length > 0) { 
+            foreach (Transform child in transform)
             {
-                characterImage.gameObject.SetActive(false);
+                Destroy(child.gameObject);
+            }
+
+            float posX = rectTransform.rect.width / textToDraw.Length;
+        
+            for (int i = 0; i < textToDraw.Length; i++)
+            {
+                AvailableTextType character = textToDraw[i];
+
+                Debug.Log(character);
+
+                Image characterImage = Instantiate(characterTemplate, transform);
+
+                characterImage.sprite = textSprites[(int)character];
+                characterImage.rectTransform.localPosition = new Vector3(posX * i - (rectTransform.rect.width / 2) + (characterImage.rectTransform.rect.width / 2), 0, 0);
+
+
+                if (character == AvailableTextType.Space)
+                {
+                    characterImage.gameObject.SetActive(false);
+                }
             }
         }
     }
@@ -66,13 +76,6 @@ public class TextEngine : MonoBehaviour {
 
         text.Enqueue((AvailableTextType)number);
         return text;
-    }
-
-	// Use this for initialization
-	void Start ()
-    {
-        rectTransform = GetComponent<RectTransform>();
-
     }
 	
 	// Update is called once per frame
