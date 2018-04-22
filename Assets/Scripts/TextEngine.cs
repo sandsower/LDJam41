@@ -50,8 +50,6 @@ public class TextEngine : MonoBehaviour {
 
     public Queue<AvailableTextType> ConvertNumberToText (int number, int digits)
     {
-
-        Debug.Log("Converting number");
         Queue<AvailableTextType> text = new Queue<AvailableTextType>();
         
         if(digits >= 4) {

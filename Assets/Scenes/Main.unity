@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95bd0f28407dd74da517250441cd9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyRate: 6
 --- !u!1 &61757061
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +542,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_LocalScale.y
@@ -875,7 +876,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1445757211281894, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_Name
@@ -1095,7 +1096,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1445757211281894, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_Name
@@ -1264,38 +1265,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1445757211281894, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
       propertyPath: m_Name
       value: SpawnRegion_D
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726323491455494, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114118618164472678, guid: 5cc8d347cda67d64880ef35254d0d894,
-        type: 2}
-      propertyPath: GizmosColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114118618164472678, guid: 5cc8d347cda67d64880ef35254d0d894,
-        type: 2}
-      propertyPath: GizmosColor.g
-      value: 0.18382353
-      objectReference: {fileID: 0}
-    - target: {fileID: 114118618164472678, guid: 5cc8d347cda67d64880ef35254d0d894,
-        type: 2}
-      propertyPath: GizmosColor.b
-      value: 0.18382353
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cc8d347cda67d64880ef35254d0d894, type: 2}
@@ -1432,6 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textEngine: {fileID: 1652296347}
   player: {fileID: 1100333398}
+  scoreToDraw: 0
 --- !u!114 &1652296347
 MonoBehaviour:
   m_ObjectHideFlags: 0

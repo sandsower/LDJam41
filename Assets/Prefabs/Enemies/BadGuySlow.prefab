@@ -22,11 +22,11 @@ GameObject:
   - component: {fileID: 95750195556233842}
   - component: {fileID: 111100182984765020}
   - component: {fileID: 212816050079679132}
-  - component: {fileID: 114018306661350270}
+  - component: {fileID: 114995377977458748}
   - component: {fileID: 50920694302055584}
   - component: {fileID: 61794201853773898}
   m_Layer: 0
-  m_Name: BadGuyNormal
+  m_Name: BadGuySlow
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 1854907994922912}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b2d00447195a62c4fb90cdfb0948766b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 59977ac4b7de02545a43be18f77809c6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -117,13 +117,13 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 18b48d27282df4d4e8a52ab96e5a9cb4, type: 2}
-  - {fileID: 7400000, guid: dd138e60763726b4890a903e41b2a5cc, type: 2}
+  - {fileID: 7400000, guid: 911e0f04e5ea32c4a84c9cf8071290bf, type: 2}
+  - {fileID: 7400000, guid: 1f8763acc9e0f3443ae7548663749e96, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &114018306661350270
+--- !u!114 &114995377977458748
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1854907994922912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b698e9c6344d24a9fae1d042ec1028, type: 3}
+  m_Script: {fileID: 11500000, guid: 822f48efb5ff04f49ba6e96c9ed750f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cd: {fileID: 61794201853773898}
@@ -139,9 +139,10 @@ MonoBehaviour:
   isDying: 0
   deathTime: 3
   damageTime: 1
-  health: 2
-  speed: 0.5
-  enemyDifficulty: 1
+  health: 0
+  speed: 0.2
+  enemyDifficulty: 10
+  scoreValue: 10
   player: {fileID: 114523145441379182, guid: 12e10f867ebb6af43b35a8b8ec789bbb, type: 2}
   lootDropper: {fileID: 114007917001024060, guid: d5eec955fcc3a414f9e8440415cfa5da,
     type: 2}

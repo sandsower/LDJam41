@@ -34,8 +34,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1445757211281894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.001, y: 0.97, z: 0}
-  m_LocalScale: {x: 50.09901, y: 2.8388348, z: 1}
+  m_LocalPosition: {x: 2.49, y: -2.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,5 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 607960152a7f9e040b6a49fcb1d3a284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1854907994922912, guid: 22b8ffad0cddbca4ebbc9447e60c020d, type: 2}
-  GizmosColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.2}
+  enemies:
+  - {fileID: 1854907994922912, guid: 7750a0ea5cf2f3f43aa7db7a0a2acd6f, type: 2}
+  - {fileID: 1854907994922912, guid: 1e291a376fabafd4b87eb80fafb54238, type: 2}
+  - {fileID: 1854907994922912, guid: 22b8ffad0cddbca4ebbc9447e60c020d, type: 2}
+  defaultEnemy: {fileID: 1854907994922912, guid: 22b8ffad0cddbca4ebbc9447e60c020d,
+    type: 2}
+  spawnRetries: 
+  GizmosColor: {r: 1, g: 0.18382353, b: 0.18382353, a: 0.2}

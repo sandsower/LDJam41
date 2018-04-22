@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour {
 
-    public GameObject enemy;
+    public GameObject[] enemies;
+    public GameObject defaultEnemy;
+    public int[] spawnRetries;
 
     public Color GizmosColor = new Color(1.0f, 0.5f, 0.5f, 0.2f);
 
@@ -14,28 +16,49 @@ public class SpawnPoint : MonoBehaviour {
         Gizmos.DrawCube(transform.position, transform.localScale);
     }
 
-    public void SpawnEnemies(int numberOfEnemies, Player player)
+    // Use this for initialization
+    void Start()
     {
-        for (int i = 0; i < numberOfEnemies; i++)
-        {
-            SpawnEnemy(player);
-        }
+        spawnRetries = new int[enemies.Length];
     }
 
-    void SpawnEnemy(Player player)
+    GameObject GetEnemyToSpawn(int currentWave)
     {
-        GameObject spawned = Instantiate(enemy, transform.parent);
+        System.Random random = new System.Random();
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            BadGuyTemplate enemy = enemies[i].GetComponent<BadGuyTemplate>();
+            double roll = random.NextDouble();
+
+            Debug.Log("Roll " + roll);
+            Debug.Log("Difficulty " + enemy.enemyDifficulty);
+            Debug.Log("Retries " + spawnRetries[i]);
+
+            Debug.Log((double)currentWave + spawnRetries[i] / enemy.enemyDifficulty);
+
+            if (roll < (double)(currentWave + spawnRetries[i]) / enemy.enemyDifficulty)
+            {
+                spawnRetries[i] = 0;
+                return enemy.gameObject;
+            }
+            else
+            {
+                spawnRetries[i]++;
+            }
+        }
+
+        return defaultEnemy;
+    }
+
+    public void SpawnEnemy(Player player, int currentWave)
+    {
+        GameObject spawned = Instantiate(GetEnemyToSpawn(currentWave), transform.parent);
 
         spawned.GetComponent<IEnemy>().setPlayer(player);
 
         Vector2 initialPoint = transform.localPosition;
         spawned.transform.localPosition = initialPoint;   
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

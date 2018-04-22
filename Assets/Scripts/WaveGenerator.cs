@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveGenerator : MonoBehaviour {
 
-    public int enemyRate = 6;
+    public int enemyRate = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +23,7 @@ public class WaveGenerator : MonoBehaviour {
         while (totalEnemiesToSpawn > 0)
         {
             SpawnPoint spawnPoint = points[Random.Range(0, points.Length)].GetComponent<SpawnPoint>();
-            spawnPoint.SpawnEnemies(1, player);
+            spawnPoint.SpawnEnemy(player, wave);
 
             totalEnemiesToSpawn -= 1;
         }
