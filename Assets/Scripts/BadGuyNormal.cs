@@ -5,16 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(Animator))]
 public class BadGuyNormal : Character, IEnemy {
 
-    Rigidbody2D rb;
-
     public int health;
     public float speed = .4f;
     public Player player;
 
     // Use this for initialization
     void Start () {
-        rb = GetComponent<Rigidbody2D>();
-
         health = 2;
     }
 

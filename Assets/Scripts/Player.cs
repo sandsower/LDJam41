@@ -38,7 +38,6 @@ public class Player : Character {
         }
 
         cardHolder.deck.onCardPlayed += OnCardPlayed;
-
     }
 
     void OnCardPlayed(Card cardPlayed)
@@ -52,7 +51,6 @@ public class Player : Character {
 
     void FireProjectile(IProjectile projectile)
     {
-        Debug.Log(projectile);
         Vector2 firePosition = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 
         Vector2 direction = firePosition - (Vector2) transform.position;
@@ -75,21 +73,22 @@ public class Player : Character {
 
             if(Input.GetButtonDown("Fire1"))
             {
-                if (cardHolder.deck.IsDeckEmpty())
+                if (cardHolder.deck.IsHandEmpty())
                 {
-                    cardHolder.deck.RefillDeck();
+
+                    if (cardHolder.deck.IsDeckEmpty())
+                    {
+                        Debug.Log("Reloading!");
+                        cardHolder.deck.RefillDeck();
+                    }
+
+                    cardHolder.deck.RefillHand();
                 }
                 else
                 {
-                    if (cardHolder.deck.IsHandEmpty())
-                    {
-                        cardHolder.deck.RefillHand();
-                    }
-                    else
-                    {
-                        cardHolder.deck.GetNextCard();
-                    }
+                    cardHolder.deck.GetNextCard();
                 }
+                
             }
         }
     }

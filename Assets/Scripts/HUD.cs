@@ -6,9 +6,7 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour {
 
     public Player player;
-
     public Sprite[] healthSprites;
-
     public Image healthUI;
 
 	// Use this for initialization

@@ -22,11 +22,24 @@ public class Deck : MonoBehaviour {
     public delegate void OnHandRefilled();
     public event OnHandRefilled onHandRefilled;
 
+    public delegate void OnDeckConstructed();
+    public event OnDeckConstructed onDeckConstructed;
+
     void EnqueueCardOfType(CardType cardType)
     {
         Card card = Instantiate(cardTemplate, transform);
         card.type = cardType;
         currentDeck.Enqueue(card);
+    }
+
+    public int GetCurrentDeckSize()
+    {
+        return currentDeck.Count;
+    }
+
+    public int GetDiscardSize()
+    {
+        return discard.Count;
     }
 
     void GenerateStarterDeck() {
@@ -49,12 +62,18 @@ public class Deck : MonoBehaviour {
         }
 
         currentDeck = RandomizeCards(currentDeck);
+
+        if(onDeckConstructed != null)
+        {
+            onDeckConstructed();
+        }
     }
 
     // Use this for initialization
     void Start () {
         // Create initial deck and empty hand
         hand = new Queue<Card>();
+        discard = new Queue<Card>();
 
         GenerateStarterDeck();
 
@@ -66,20 +85,15 @@ public class Deck : MonoBehaviour {
 		
 	}
 
-    public Card GetNextCard() {
+    public void GetNextCard() {
         // Pop from the queue, send delegate notice for possible animations
         Card card = hand.Dequeue();
+        discard.Enqueue(card);
 
-        if(onCardPlayed != null)
+        if (onCardPlayed != null)
         {
             onCardPlayed(card);
         }
-
-        discard.Enqueue(card);
-
-        Debug.Log(card);
-
-        return card;
     }
 
     public bool IsDeckEmpty()
@@ -115,6 +129,12 @@ public class Deck : MonoBehaviour {
     public void RefillDeck()
     {
         currentDeck = RandomizeCards(discard);
+        discard = new Queue<Card>();
+
+        if (onDeckConstructed != null)
+        {
+            onDeckConstructed();
+        }
     }
 
     static Queue<Card> RandomizeCards(Queue<Card> cards)
