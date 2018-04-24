@@ -13,8 +13,8 @@ public class Level : MonoBehaviour {
 
     public WaveGenerator generator;
 
-    public delegate void OnWaveAdvance(int wave);
-    public event OnWaveAdvance onWaveAdvance;
+    public delegate void OnScoreChange(int score);
+    public event OnScoreChange onScoreChange;
 
     public int currentScore = 0;
     public int enemiesToKill = 0;
@@ -60,20 +60,25 @@ public class Level : MonoBehaviour {
     {
         currentWave += 1;
 
-        if (onWaveAdvance != null)
-        {
-            onWaveAdvance(currentWave);
-        }
-
         yield return new WaitForSeconds(3);
 
         enemiesToKill = generator.Generate(currentWave, player, points);
+
+        if (onScoreChange != null)
+        {
+            onScoreChange(currentScore);
+        }
     }
 
     public void EnemyKilled(int scoreValue)
     {
         currentScore += scoreValue;
         enemiesToKill -= 1;
+
+        if (onScoreChange != null)
+        {
+            onScoreChange(currentScore);
+        }
 
         if(enemiesToKill == 0)
         {
