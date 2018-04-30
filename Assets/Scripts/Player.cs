@@ -16,6 +16,9 @@ public class Player : Character {
     public float pushBackSpeed = 2f;
 
     public int health = 3;
+    public float reshuffleSpeed = 1.0f;
+
+    bool shufflingDeck;
 
     public Animator animator;
 
@@ -30,6 +33,8 @@ public class Player : Character {
         animator = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
 
+        shufflingDeck = false;
+
         cd = GetComponent<Collider2D>();
         an = GetComponent<Animator>();
         damageTime = 3f;
@@ -40,6 +45,18 @@ public class Player : Character {
         }
 
         cardHolder.deck.onCardPlayed += OnCardPlayed;
+        cardHolder.deck.onStartReshuffling += OnStartReshuffling;
+        cardHolder.deck.onFinishReshuffling += OnFinishReshuffling;
+    }
+
+    private void OnFinishReshuffling()
+    {
+        shufflingDeck = false;
+    }
+
+    private void OnStartReshuffling()
+    {
+        shufflingDeck = true;
     }
 
     void OnCardPlayed(Card cardPlayed)
@@ -77,22 +94,24 @@ public class Player : Character {
 
             if(Input.GetButtonDown("Fire1"))
             {
-                if (cardHolder.deck.IsHandEmpty())
+                if (!shufflingDeck)
                 {
-
-                    if (cardHolder.deck.IsDeckEmpty())
+                    if (cardHolder.deck.IsDeckEmpty() && cardHolder.deck.IsHandEmpty())
                     {
-                        Debug.Log("Reloading!");
-                        cardHolder.deck.RefillDeck();
+                        StartCoroutine(cardHolder.deck.StartRefillDeckCoroutine(reshuffleSpeed));
+                    } else {
+                        if (cardHolder.deck.IsHandEmpty())
+                        {
+                            cardHolder.deck.RefillHand();
+                        }
+                        else
+                        {
+                            cardHolder.deck.GetNextCard();
+                        }
                     }
-
-                    cardHolder.deck.RefillHand();
                 }
-                else
-                {
-                    cardHolder.deck.GetNextCard();
-                }
-                
+            } else if(Input.GetButtonDown("Fire2")) {
+                StartCoroutine(cardHolder.deck.StartRefillDeckCoroutine(reshuffleSpeed));
             }
         }
     }

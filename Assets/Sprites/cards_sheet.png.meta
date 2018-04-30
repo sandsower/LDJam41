@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8cce8e46549c9aa46a2ec1967b1e79f6
-timeCreated: 1524422346
+timeCreated: 1524789556
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,14 @@ TextureImporter:
     21300002: card_super
     21300004: card_blank
     21300006: card_score
+    21300008: cards_sheet_0
+    21300010: cards_sheet_1
+    21300012: cards_sheet_2
+    21300014: cards_sheet_3
+    21300016: cards_sheet_4
+    21300018: cards_sheet_5
+    21300020: cards_sheet_6
+    21300022: cards_sheet_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -82,13 +90,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: card_normal
+      name: cards_sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 160
+        width: 136
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,13 +104,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: card_super
+      name: cards_sheet_1
       rect:
         serializedVersion: 2
-        x: 129
+        x: 136
         y: 0
-        width: 128
-        height: 160
+        width: 136
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,13 +118,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: card_blank
+      name: cards_sheet_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 272
         y: 0
-        width: 128
-        height: 160
+        width: 136
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,13 +132,69 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: card_score
+      name: cards_sheet_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 408
         y: 0
-        width: 128
-        height: 160
+        width: 136
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cards_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 0
+        width: 136
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cards_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 136
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cards_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 0
+        width: 136
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: cards_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 0
+        width: 136
+        height: 168
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

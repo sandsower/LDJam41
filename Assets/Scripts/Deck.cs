@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 public class Deck : MonoBehaviour {
@@ -16,7 +17,13 @@ public class Deck : MonoBehaviour {
 
     Queue<Card> currentDeck;
     Queue<Card> discard;
-    
+
+    public delegate void OnStartReshuffling();
+    public event OnStartReshuffling onStartReshuffling;
+
+    public delegate void OnFinishReshuffling();
+    public event OnFinishReshuffling onFinishReshuffling;
+
     public delegate void OnCardPlayed(Card cardPlayed);
     public event OnCardPlayed onCardPlayed;
 
@@ -155,8 +162,37 @@ public class Deck : MonoBehaviour {
         }
     }
 
-    public void RefillDeck()
+    public IEnumerator StartRefillDeckCoroutine(float reshuffleSpeed)
     {
+        foreach(var c in hand.ToList())
+        {
+            discard.Enqueue(c);
+        }
+
+        hand.Clear();
+
+        if(onStartReshuffling != null)
+        {
+            onStartReshuffling();
+        }
+
+        yield return new WaitForSeconds(reshuffleSpeed);
+
+        RefillDeck();
+
+        if (onFinishReshuffling != null)
+        {
+            onFinishReshuffling();
+        }
+    }
+
+    void RefillDeck()
+    {
+        foreach(var o in currentDeck.ToList())
+        {
+            discard.Enqueue(o);
+        }
+
         currentDeck = RandomizeCards(discard);
         discard = new Queue<Card>();
 
