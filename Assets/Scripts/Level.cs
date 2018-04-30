@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour {
 
-    public GameObject[] points;
+    public List<GameObject> points;
 
     public Player player;
     public FinalScore score;
@@ -25,6 +25,14 @@ public class Level : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        points = new List<GameObject>();
+
+        foreach(Transform spawnPoint in transform)
+        {
+            points.Add(spawnPoint.gameObject);
+        }
+
         StartCoroutine(AdvanceWave());
         
         score.onScoreShown += OnScoreShown;
@@ -62,7 +70,7 @@ public class Level : MonoBehaviour {
 
         yield return new WaitForSeconds(3);
 
-        enemiesToKill = generator.Generate(currentWave, player, points);
+        enemiesToKill = generator.Generate(currentWave, player, points.ToArray());
 
         if (onScoreChange != null)
         {
