@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Spawn
   - SpawnRegion
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -17,10 +18,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemies
+  - Projectiles
+  - Wall
   - 
   - 
   - 

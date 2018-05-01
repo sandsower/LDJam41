@@ -19,6 +19,7 @@ public class Player : Character {
     public float reshuffleSpeed = 1.0f;
 
     bool shufflingDeck;
+    bool shouldStopMoving;
 
     public Animator animator;
 
@@ -28,10 +29,12 @@ public class Player : Character {
     public delegate void OnPlayerDeath();
     public event OnPlayerDeath onPlayerDeath;
 
+
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
         playerRigidBody = GetComponent<Rigidbody2D>();
+        shouldStopMoving = false;
 
         shufflingDeck = false;
 
@@ -89,10 +92,13 @@ public class Player : Character {
 	void Update () {
         if(!isDying) { 
             // Get Player movement
-            movementHorizontal = Input.GetAxisRaw("Horizontal");
-            movementVertical = Input.GetAxisRaw("Vertical");
+            if(!shouldStopMoving) {
+                Debug.Log("Moving!");
+                movementHorizontal = Input.GetAxisRaw("Horizontal");
+                movementVertical = Input.GetAxisRaw("Vertical");
+            }
 
-            if(Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1"))
             {
                 if (!shufflingDeck)
                 {

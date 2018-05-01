@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50738040667614876}
   - component: {fileID: 95259952039371938}
   - component: {fileID: 61508000323530974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61508000323530974
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -126,12 +126,13 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1730079785701876, guid: fd8dca965e8d7e049b9322501d36a056,
     type: 2}
   bulletSpawnPoint: {fileID: 4150196913271990}
+  cardHolder: {fileID: 0}
   movementSpeed: 20
   movementVertical: 0
   movementHorizontal: 0
   pushBackSpeed: 2
-  isAlive: 1
   health: 3
+  reshuffleSpeed: 1
   animator: {fileID: 0}
 --- !u!212 &212154372254640422
 SpriteRenderer:

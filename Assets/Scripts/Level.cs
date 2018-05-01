@@ -30,7 +30,10 @@ public class Level : MonoBehaviour {
 
         foreach(Transform spawnPoint in transform)
         {
-            points.Add(spawnPoint.gameObject);
+            if(spawnPoint.tag == "SpawnRegion")
+            {
+                points.Add(spawnPoint.gameObject);
+            }
         }
 
         StartCoroutine(AdvanceWave());

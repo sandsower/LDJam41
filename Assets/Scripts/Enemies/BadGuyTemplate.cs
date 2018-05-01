@@ -41,15 +41,20 @@ public class BadGuyTemplate : Character, IEnemy
         }
     }
 
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Projectile"))
         {
             ApplyDamage(collision);
         }
-        else if (collision.CompareTag("Player"))
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
         {
-            player.TakeDamage(collision);
+            player.TakeDamage(collision.collider);
         }
     }
 

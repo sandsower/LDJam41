@@ -5,8 +5,6 @@ using UnityEngine;
 public class UI : MonoBehaviour {
 
     public Texture2D crosshairImage;
-    public Texture2D fullHeart;
-    public Texture2D emptyHeart;
 
     // Use this for initialization
     void Start () {
