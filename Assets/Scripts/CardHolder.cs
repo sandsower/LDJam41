@@ -52,7 +52,7 @@ public class CardHolder : MonoBehaviour {
         {
             Image card = Instantiate(availableCards[(int) cardsToDraw[i].type].GetCardImage(i == 0), transform);
             
-            float posX = (i - (cardsToDraw.Length / 2f)) * ((card.rectTransform.rect.width / 3f) + .2f);
+            float posX = (i - (cardsToDraw.Length / 2f)) * ((card.rectTransform.rect.width / 3f) + .25f);
             card.rectTransform.localPosition = new Vector3(posX, 0, 0); //  - (rectTransform.rect.width / 2) + (card.rectTransform.rect.width / 2)
 
             Vector3 vectorToTarget = rotationPoint.transform.position - card.rectTransform.position;
@@ -60,8 +60,6 @@ public class CardHolder : MonoBehaviour {
 
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.back);
             card.rectTransform.rotation = q;
-
-            Debug.Log(card.rectTransform.rotation);
         }
     }
 

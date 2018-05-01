@@ -61,7 +61,6 @@ public class Level : MonoBehaviour {
         {
             if (Input.anyKey)
             {
-                Debug.Log("Loading level!");
                 SceneManager.LoadScene("Main");
             }
         }

@@ -93,7 +93,6 @@ public class Player : Character {
         if(!isDying) { 
             // Get Player movement
             if(!shouldStopMoving) {
-                Debug.Log("Moving!");
                 movementHorizontal = Input.GetAxisRaw("Horizontal");
                 movementVertical = Input.GetAxisRaw("Vertical");
             }

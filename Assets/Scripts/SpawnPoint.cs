@@ -34,11 +34,12 @@ public class SpawnPoint : MonoBehaviour {
             Debug.Log("Difficulty " + enemy.enemyDifficulty);
             Debug.Log("Retries " + spawnRetries[i]);
 
-            Debug.Log((double)currentWave + spawnRetries[i] / enemy.enemyDifficulty);
+            Debug.Log((double)(currentWave + spawnRetries[i]) / enemy.enemyDifficulty);
 
             if (roll < (double)(currentWave + spawnRetries[i]) / enemy.enemyDifficulty)
             {
                 spawnRetries[i] = 0;
+                Debug.Log("Spawning " + enemy);
                 return enemy.gameObject;
             }
             else
@@ -47,6 +48,7 @@ public class SpawnPoint : MonoBehaviour {
             }
         }
 
+        Debug.Log("Spawning default");
         return defaultEnemy;
     }
 
